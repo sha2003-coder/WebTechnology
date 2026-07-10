@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Methods Exercise</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+		div {
+			background-color: red;
+			color: white;
+			font-size: 32px;
+			text-align: center;
+			font-weight: bold;
+		}
+        p {
+            background-color: green;
+            color: white;
+            font-size: 18px;
+        }
+		
+		.odd-element {
+			background-color: pink; 
+			font-family: 'Verdana', 'DejaVu Sans', sans-serif;
+		}
+
+		
+		#first-id {
+			color: Blue; 
+			font-size: 36px;
+		}
+
+		
+		.cool-variation {
+			font-size: 24px;
+		}
+
+		
+		#second-id {
+			background-color: Light green; 
+			font-size: 24px;
+			font-weight: bold;
+		}
+		
+		.btn-primary {
+			background-color: Black; 
+			color: White;
+		}
+
+		
+		.btn-secondary {
+			background-color:Yellow; 
+		}
+
+		
+		.btn-primary, .btn-secondary {
+			font-size: 28px;
+			font-family: 'Helvetica', 'Times New Roman', sans-serif;
+		}
+				
+		.avatar.proportioned {
+			width: 300px;
+		}
+
+		
+		.avatar.distorted {
+			width: 200px;
+			height: 400px;
+		}
+		
+		div p {
+			background-color: yellow;
+			color: red;
+			font-size: 20px;
+			text-align: center;
+		}
+		
+		div.container p {
+			background-color: yellow;
+			color: red;
+			font-size: 20px;
+			text-align: center;
+		}
+
+		
+		div .text {
+			background-color: yellow;
+			color: red;
+			font-size: 20px;
+			text-align: center;
+		}
+    </style>
+</head>
+<body>
+
+    <div>Style me via the external method!</div>
+    
+    <p>I would like to be styled with the internal method, please.</p>
+    
+    <button style="background-color: orange; font-size: 18px;">Inline Method</button>
+	<div class="odd-element">Number 1 - I'm a class!</div>
+	<div id="first-id">Number 2 - I'm one ID.</div>
+	<div class="odd-element cool-variation">Number 3 - I'm a class, but cooler!</div>
+	<div id="second-id">Number 4 - I'm another ID.</div>
+	<div class="odd-element">Number 5 - I'm a class!</div>
+	
+	<button class="btn-primary">Click Me!</button>
+	<button class="btn-secondary">No, Click Me!</button>
+	
+	<h2>Styled Avatars</h2>
+    <img class="avatar proportioned" src="image1.jpg" alt="Proportioned Avatar">
+
+    <img class="avatar distorted" src="image2.jpg" alt="Distorted Avatar">
+
+
+    <hr>
+    <h2>Original Unstyled Images</h2>
+    <img class="avatar" src="image1.jpg" alt="Original Profile 1">
+    <img class="avatar" src="image2.jpg" alt="Original Profile 2">
+	
+	
+	<div>
+        <p>This should be styled.</p>
+    </div>
+
+    <p>This should be unstyled.</p>
+    <p>This should be unstyled.</p>
+
+    <div>
+        <p>This should be styled.</p>
+        <p>This should be styled.</p>
+    </div>
+	
+</body>
+</html>
