@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript DOM Example</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        #demo {
+            color: #007bff;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        #welcome-message {
+            color: #333;
+            background-color: #ffffff;
+            padding: 15px;
+            margin: 20px auto;
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 5px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        img {
+            width: 150px;
+            margin-top: 15px;
+        }
+
+        #greeting {
+            font-size: 18px;
+            color: #444;
+            margin-top: 15px;
+        }
+		#mydiv{
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+#mydiv:hover {
+    background-color: blue;
+}
+    </style>
+</head>
+
+<body>
+
+    <h2 id="demo">Hello</h2>
+
+    <button onclick="changeText()">Click Me</button>
+
+    <h1 id="welcome-message">Welcome to JavaScript Lab</h1>
+
+    <input type="text" id="username" placeholder="Enter your username">
+
+    <button onclick="printGreeting()">Greet Me</button>
+
+    <p id="greeting"></p>
+	
+    <p>
+        Look at this octopus:
+        <br>
+        <img src="images.png" alt="Octopus" id="icon1">
+    </p>
+	<div id="mydiv">hover over me </div>
+	<h2 id="db1">Double-click the button</h2>
+
+	<button id="button1">Double Click Me</button>
+    <script>
+        document.getElementById("demo").innerHTML = "Welcome to JavaScript!";
+        document.getElementById("welcome-message").textContent =
+            "Welcome DOM message in innerHTML";
+
+        function changeText() {
+            document.getElementById("demo").innerHTML =
+                "Button was clicked!";
+
+            document.getElementById("welcome-message").textContent =
+                "DOM content updated successfully.";
+
+            document.getElementById("icon1").src = "images2.png";
+        }
+
+        function printGreeting() {
+            const uname = document.getElementById("username").value;
+
+            document.getElementById("greeting").innerHTML =
+                "Hello, <strong>" + uname + "</strong>! Welcome.";
+
+            console.log(uname);
+        }
+		const mydiv=document.getElementById("mydiv");
+		function handleMouseover()
+		{
+			mydiv.style.backgroundColor="lightcoral"
+		}
+		mydiv.addEventListener("mouseover",handleMouseover)
+		function handleMouseout()
+		{
+			mydiv.style.backgroundColor="lightblue";
+		}
+		mydiv.addEventListener("mouseout",handleMouseout)
+		const DoubleclickButton=document.getElementById("button1");
+		function checkDoubleClick()
+		{
+			const header=document.getElementById("db1");
+			header.style.color="red";
+			header.style.fontFamily="serif";
+			header.style.fontSize="18pt";
+		}
+		DoubleclickButton.addEventListener("db1click",checkDoubleClick1);
+
+    </script>
+
+</body>
+</html>
