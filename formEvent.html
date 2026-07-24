@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Events</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        input, select {
+            margin: 10px 0;
+            padding: 8px;
+            width: 250px;
+        }
+
+        #output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 120px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Form Events Example</h2>
+
+    <form id="myForm">
+
+        <label>Name:</label><br>
+        <input type="text"
+               id="name"
+               placeholder="Enter your name"><br>
+
+        <label>City:</label><br>
+        <select>
+            <option value="USA">USA</option>
+            <option value="canada">Canada</option>
+            <option value="UK">UK</option>
+            <option value="India">India</option>
+        </select></br>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+
+    </form>
+
+    <h3>Event Log</h3>
+    <div id="output"></div>
+
+    <script>
+
+        const output = document.getElementById("output");
+        const name = document.getElementById("name");
+        const city = document.getElementById("city");
+        const form = document.getElementById("myForm");
+
+        function log(message) {
+            output.innerHTML += message + "<br>";
+        }
+
+        // Focus Event
+        name.addEventListener("focus", function () {
+            log("Focus Event");
+        });
+
+        // Blur Event
+        name.addEventListener("blur", function () {
+            log("Blur Event");
+        });
+
+        // Input Event
+        name.addEventListener("input", function () {
+            log("Input Event : " + name.value);
+        });
+
+        // Change Event
+        city.addEventListener("change", function () {
+            log("Selected City : " + city.value);
+        });
+
+        // Submit Event
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            log("Form Submitted");
+        });
+
+        // Reset Event
+        form.addEventListener("reset", function () {
+            log("Form Reset");
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="formContainer">
+        <label for="userName">Enter your name:</label><br>
+        <input type="text" id="userName"><br><br>
+        
+        <button onclick="handleSubmit()">Submit</button>
+      </div>
+        <p id="errorMessage"></p>
+        <h2 id="welcomeMessage"></h2>
+     
+        <script>
+            function handleSubmit() {
+              var inputField = document.getElementById("userName");
+              var errorPara = document.getElementById("errorMessage");
+              var welcomeHeading = document.getElementById("welcomeMessage");
+              var formContainer = document.getElementById("formContainer");
+        
+              var nameValue = inputField.value.trim();
+        
+             
+              if (nameValue.length >= 4) {
+               
+                welcomeHeading.textContent = "Welcome, " + nameValue + "!";
+                
+                
+                errorPara.textContent = "";
+        
+                
+                formContainer.style.display = "none";
+              } else {
+                
+                errorPara.textContent = "Error: Name must be at least 4 characters long.";
+                
+                
+                inputField.style.border = "2px solid red";
+                inputField.focus();
+              }
+            }
+          </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keyboard Events Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Keyboard Events Demo</h2>
+
+    <p>Type something in the textbox:</p>
+
+    <input type="text"
+           id="txt"
+           onkeydown="handleKeyDown(event)"
+           onkeyup="handleKeyUp(event)"
+           onkeypress="handleKeyPress(event)">
+
+    <div class="output" id="output"></div>
+    <p id="code"></p>
+    <script>
+        function handleKeyDown(event) {
+            document.getElementById("output").innerHTML +=
+                "<b>Key Down</b> : " + event.key +
+                " | Code : " + event.code + "<br>";
+        }
+
+        function handleKeyPress(event) {
+            document.getElementById("output").innerHTML +=
+                "<b>Key Press</b> : " + event.key + "<br>";
+        }
+
+        function handleKeyUp(event) {
+            document.getElementById("output").innerHTML +=
+                "<b>Key Up</b> : " + event.key + "<br><br>";
+        }
+        window.addEventListener('keydown',(event) =>
+        {
+            const code=document.getElementById("code")
+            code.textContent=event.code
+        });
+
+    </script>
+
+</body>
+</html>

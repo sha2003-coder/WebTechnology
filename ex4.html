@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Dynamic Colour Manager</h1>
+
+  <label for="colorPicker">Select a colour:</label>
+  <input type="color" id="colorPicker" value="#ff0000">
+  <br><br>
+
+  <button onclick="saveColor()">Save Colour</button>
+  <button onclick="listSavedColours()">List Saved Colours</button>
+
+  <br><br>
+
+  <div id="colorListContainer"></div>
+  
+  <script>
+    
+    const savedColors = [];
+
+    
+    function saveColor() {
+      const colorInput = document.getElementById("colorPicker");
+      const selectedColor = colorInput.value;
+
+      savedColors.push(selectedColor);
+      alert("Saved color: " + selectedColor);
+    }
+
+    
+    function listSavedColours() {
+      const container = document.getElementById("colorListContainer");
+      
+      
+      container.innerHTML = "<h3>Saved Colours (Click to apply & remove):</h3>";
+
+      if (savedColors.length === 0) {
+        container.innerHTML += "<p>No colors saved yet.</p>";
+        return;
+      }
+
+     
+      savedColors.forEach(function(colorHex, index) {
+        const colorBox = document.createElement("div");
+       
+        colorBox.textContent = colorHex;
+        colorBox.style.backgroundColor = colorHex;
+        colorBox.style.padding = "10px";
+        colorBox.style.margin = "5px 0";
+        colorBox.style.width = "150px";
+
+       
+        colorBox.onclick = function() {
+          
+          document.body.style.backgroundColor = colorHex;
+
+         
+          savedColors.splice(index, 1);
+
+         
+          listSavedColours();
+        };
+
+        container.appendChild(colorBox);
+      });
+    }
+  </script>
+
+</body>
+</html>

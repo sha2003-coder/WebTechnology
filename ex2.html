@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Function-Based Counters</h1>
+
+  
+    <div>
+      <button onclick="countDeclaration()">Counter 1</button>
+      <span>Count: <span id="display1">0</span></span>
+    </div>
+    <br>
+  
+    
+    <div>
+      <button onclick="countExpression()">Counter 2</button>
+      <span>Count: <span id="display2">0</span></span>
+    </div>
+    <br>
+  
+    
+    <div>
+      <button onclick="countArrow()">Counter 3</button>
+      <span>Count: <span id="display3">0</span></span>
+    </div>
+
+    <script>
+    
+        let counter1 = 0;
+        function countDeclaration() {
+          counter1++;
+          document.getElementById("display1").textContent = counter1;
+        }
+    
+        
+        let counter2 = 0;
+        const countExpression = function() {
+          counter2++;
+          document.getElementById("display2").textContent = counter2;
+        };
+    
+        
+        let counter3 = 0;
+        const countArrow = () => {
+          counter3++;
+          document.getElementById("display3").textContent = counter3;
+        };
+      </script>
+</body>
+</html>

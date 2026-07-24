@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Dynamic Counter Generator</h1>
+
+    <div id="counterButtonsContainer"></div>
+    <br>
+    <div id="actionContainer"></div>
+    <br>
+    <div id="totalsContainer"></div>
+
+    <script>
+    
+        const countersList = [];
+    
+        
+        function getRandomColor() {
+          const letters = "0123456789ABCDEF";
+          let color = "#";
+          for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+          }
+          return color;
+        }
+    
+       
+        function generateCounters(numberOfCounters) {
+          const container = document.getElementById("counterButtonsContainer");
+    
+          for (let i = 1; i <= numberOfCounters; i++) {
+            
+            const counterData = {
+              name: "Counter " + i,
+              count: 0,
+              color: getRandomColor()
+            };
+    
+            countersList.push(counterData);
+    
+          
+            const btn = document.createElement("button");
+            btn.textContent = counterData.name + " (Count: 0)";
+            btn.style.backgroundColor = counterData.color;
+    
+            
+            btn.onclick = function() {
+              counterData.count++;
+              btn.textContent = counterData.name + " (Count: " + counterData.count + ")";
+            };
+    
+            container.appendChild(btn);
+          }
+        }
+    
+        
+        function createShowTotalsButton() {
+          const actionContainer = document.getElementById("actionContainer");
+          const showTotalsBtn = document.createElement("button");
+          showTotalsBtn.textContent = "Show All Totals";
+    
+          showTotalsBtn.onclick = function() {
+            const totalsContainer = document.getElementById("totalsContainer");
+            totalsContainer.innerHTML = "<h2>Totals Summary</h2>";
+    
+            
+            countersList.forEach(function(item) {
+              const resultPara = document.createElement("p");
+              resultPara.textContent = item.name + " | Total Count: " + item.count;
+              resultPara.style.backgroundColor = item.color;
+              
+              totalsContainer.appendChild(resultPara);
+            });
+          };
+    
+          actionContainer.appendChild(showTotalsBtn);
+        }
+    
+        
+        generateCounters(4);
+        createShowTotalsButton();
+      </script>
+</body>
+</html>
